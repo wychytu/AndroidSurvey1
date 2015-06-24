@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8">
+<title>tocuh</title>
+<link rel="stylesheet" href="controls/touch/resources/css/sencha-touch.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<script type="text/javascript" src="script/locale/wb-lang-zh_CN.js"></script>
+<script type="text/javascript" src="controls/touch/locale/t-lang-zh_CN.js"></script>
+<script type="text/javascript" src="controls/touch/sencha-touch-all.js"></script>
+<script type="text/javascript" src="script/wb.js"></script>
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+Ext.setup({
+viewport:{
+id:"tviewport1"
+},
+onReady:function(){
+Wb.initTouch(null,480);
+this.add([
+{id:"tform1",fullscreen:true,title:"login",xtype:"formpanel",items:[
+{id:"user",label:"name",xtype:"textfield"
+}
+,{id:"pwd",label:"password",xtype:"textfield"
+}
+,{id:"tbutton1",text:"ok",xtype:"button",listeners:{tap:function(comp,options){
+var d = Wb.getValue(tform1);
+var t = Wb.encode(d);
+window.my.getrs(t);
+}}
+}
+]}
+]);
+}});
+</script>
+</body>
+</html>
